@@ -27,13 +27,48 @@ namespace CodeSchool.Tests
             Assert.AreEqual(testBody, testComment.Body);
             Assert.AreEqual(testAuthor, testComment.Owner);
             // Assert.AreEqual(testPost, testComment.Post);
+        }
+        
+        [TestMethod()]
+        public void CommentNullBodyTest()
+        {
+            string testBody = null;
+            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
+            Post testPost = new Post(testAuthor, "How to write posts", "just do it");
+            DateTime testDateTime = DateTime.Now;
 
+            Comment testComment;
+            
+            try
+            {
+                testComment = new Comment(testBody, testAuthor, testPost);
+                Assert.IsNull(testComment.Body);
+            }
+            catch(ArgumentNullException)
+            {
+                Console.WriteLine("Comment body test null passed");
+            }
+        }
+        
+        [TestMethod()]
+        public void CommentNullBodyTest()
+        {
+            string testBody = "you make good posts";
+            Author testAuthor = null;
+            Post testPost = new Post(testAuthor, "How to write posts", "just do it");
+            DateTime testDateTime = DateTime.Now;
+
+            Comment testComment;
+            
+            try
+            {
+                testComment = new Comment(testBody, testAuthor, testPost);
+                Assert.IsNull(testComment.Author);
+            }
+            catch(ArgumentNullException)
+            {
+                Console.WriteLine("Comment Author test null passed");
+            }
         }
     }
 }
-    //[TestMethod()]
-    //public void CommentTest1()
-    //{
-    //    Assert.Fail();
-    //}
-
