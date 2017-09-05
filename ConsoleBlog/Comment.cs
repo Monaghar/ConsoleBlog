@@ -16,11 +16,15 @@ namespace CodeSchoolBlog
 
         public Comment(string body, Author owner, Post post)
         {
-            Body = body;
-            Owner = owner;
-            this.dateTime = DateTime.Now;
-            owner.MyComments.Add(this);
-            post.Comments.Add(this);
+            if(body != null && owner != null && post != null)
+            {
+                Body = body;
+                Owner = owner;
+                this.dateTime = DateTime.Now;
+                owner.MyComments.Add(this);
+                post.Comments.Add(this);
+            }
+            else{throw new ArgumentNullException("Yo your Comment params are null fix em");}
         }
     }
 }
