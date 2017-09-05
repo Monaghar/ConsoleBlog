@@ -51,7 +51,7 @@ namespace CodeSchool.Tests
         }
         
         [TestMethod()]
-        public void CommentNullBodyTest()
+        public void CommentNullAuthorTest()
         {
             string testBody = "you make good posts";
             Author testAuthor = null;
@@ -68,6 +68,27 @@ namespace CodeSchool.Tests
             catch(ArgumentNullException)
             {
                 Console.WriteLine("Comment Author test null passed");
+            }
+        }
+        
+        [TestMethod()]
+        public void CommentNullPostTest()
+        {
+            string testBody = "you make good posts";
+            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
+            Post testPost = null;
+            DateTime testDateTime = DateTime.Now;
+
+            Comment testComment;
+            
+            try
+            {
+                testComment = new Comment(testBody, testAuthor, testPost);
+                Assert.IsNull(testComment.Post);
+            }
+            catch(ArgumentNullException)
+            {
+                Console.WriteLine("Comment Post test null passed");
             }
         }
     }
