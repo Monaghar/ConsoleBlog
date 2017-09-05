@@ -40,7 +40,7 @@ namespace CodeSchoolBlog.Tests
             }
             catch(ArgumentNullException)
             {
-                Console.WriteLine("Is anyone even checking this? it's an argument null exception on testBlog Title");
+                Assert.Pass("Blog Constructor Title null test passed");
             }
         }
 
@@ -60,7 +60,7 @@ namespace CodeSchoolBlog.Tests
             }
             catch (ArgumentNullException)
             {
-                Console.WriteLine("Is anyone even checking this? it's an argument null exception on testBlog Description");
+                Assert.Pass("Blog Constructor Description null test passed");
             }
         }
 
@@ -80,7 +80,7 @@ namespace CodeSchoolBlog.Tests
             }
             catch (ArgumentNullException)
             {
-                Console.WriteLine("Is anyone even checking this? it's an argument null exception on testBlog Owner");
+                Assert.Pass("Blog Constructor Author null test passed");
             }
         }
     }
