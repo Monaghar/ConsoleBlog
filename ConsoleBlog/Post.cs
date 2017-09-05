@@ -16,11 +16,15 @@ namespace CodeSchoolBlog
 
         public Post(Author owner, string title, string body)
         {
-            Title = title;
-            Body = body;
-            this.dateTime = DateTime.Now;
-            owner.MyPosts.Add(this);
-            Comments = new List<Comment>();
+             if(owner != null && title != null && body != null)
+            {
+                Title = title;
+                Body = body;
+                this.dateTime = DateTime.Now;
+                owner.MyPosts.Add(this);
+                Comments = new List<Comment>();
+            }
+            else {throw new ArgumentNullException("Yo your Post params are null fix em");} 
         }
     }
 }
