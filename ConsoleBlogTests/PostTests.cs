@@ -40,7 +40,7 @@ namespace CodeSchoolBlog.Tests
             }
             catch(ArgumentNullException)
             {
-                Assert.Pass("Pest Constructor Author nulll test passed");
+                Assert.Pass("Post Constructor Author nulll test passed");
             }
         }
 
