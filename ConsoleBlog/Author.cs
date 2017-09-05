@@ -18,12 +18,16 @@ namespace CodeSchoolBlog
 
         public Author(string name, string eMail, string bio, string password)
         {
-            Name = name;
-            EMail = eMail;
-            Bio = bio;
-            MyComments = new List<Comment>();
-            MyPosts = new List<Post>();
-            Password = password;
+            if(owner != null && title != null && body != null)
+            {
+                Name = name;
+                EMail = eMail;
+                Bio = bio;
+                Password = password;
+                MyComments = new List<Comment>();
+                MyPosts = new List<Post>();
+            }
+            else{throw new ArgumentNullException("Yo your Author params are null fix em");} 
         }
 
         public bool LogIn(string password)
