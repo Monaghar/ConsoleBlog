@@ -22,7 +22,7 @@ namespace CodeSchoolBlog
                 Title = title;
                 Description = description;
             }
-            else { throw new ArgumentNullException("Yo your stuff is null fix it"); }
+            else { throw new ArgumentNullException("Yo your Blog params are null fix em"); }
         }
     }
 }
