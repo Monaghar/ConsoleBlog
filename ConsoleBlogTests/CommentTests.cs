@@ -46,7 +46,7 @@ namespace CodeSchool.Tests
             }
             catch(ArgumentNullException)
             {
-                Console.WriteLine("Comment body test null passed");
+                Assert.Pass("Comment body test null passed");
             }
         }
         
@@ -67,7 +67,7 @@ namespace CodeSchool.Tests
             }
             catch(ArgumentNullException)
             {
-                Console.WriteLine("Comment Author test null passed");
+                Assert.Pass("Comment Author test null passed");
             }
         }
         
@@ -88,7 +88,7 @@ namespace CodeSchool.Tests
             }
             catch(ArgumentNullException)
             {
-                Console.WriteLine("Comment Post test null passed");
+                Assert.Pass("Comment Post test null passed");
             }
         }
     }
