@@ -52,7 +52,7 @@ namespace CodeSchool.Tests
         }
 
         [TestMethod()]
-        public void AuthorNameNullTest()
+        public void AuthorEMailNullTest()
         {
             string name = "Hodor";
             string eMail = null;
@@ -73,7 +73,7 @@ namespace CodeSchool.Tests
         }
         
         [TestMethod()]
-        public void AuthorNameNullTest()
+        public void AuthorBioNullTest()
         {
             string name = "Hodor";
             string eMail = "HOR@DOR";
@@ -94,7 +94,7 @@ namespace CodeSchool.Tests
         }
         
         [TestMethod()]
-        public void AuthorNameNullTest()
+        public void AuthorPasswordNullTest()
         {
             string name = "Hodor";
             string eMail = "HOR@DOR";
