@@ -10,7 +10,6 @@ namespace CodeSchoolBlog
     {
         public string Body { get; set; }
         public DateTime dateTime { get; set; }
-        //public Author Owner { get; set; }
         public List<Comment> CommentChain {get; set;}
 
         public Comment() { }
