@@ -14,40 +14,18 @@ namespace CodeSchoolBlog.Tests
         [TestMethod()]
         public void PostTest()
         {
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
             string testTitle = "my test title";
             string testBody = "alot of great info";
 
-            var testPost = new Post(testAuthor, testTitle, testBody);
+            var testPost = new Post(testTitle, testBody);
 
             Assert.AreEqual(testTitle, testPost.Title);
             Assert.AreEqual(testBody, testPost.Body);
         }
 
         [TestMethod()]
-        public void PostTestNullAuthorConstructor()
-        {
-            Author testAuthor = null;
-            string testTitle = "my test title";
-            string testBody = "alot of great info";
-
-            var testPost; 
-            
-            try
-            {
-               testPost = new Post(testAuthor, testTitle, testBody);
-               Assert.IsNull(testPost.Owner);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Post Constructor Author nulll test passed");
-            }
-        }
-
-        [TestMethod()]
         public void PostTestNullTitleConstructor()
         {
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
             string testTitle = null;
             string testBody = "alot of great info";
 
@@ -55,7 +33,7 @@ namespace CodeSchoolBlog.Tests
             
             try
             {
-               testPost = new Post(testAuthor, testTitle, testBody);
+               testPost = new Post(testTitle, testBody);
                Assert.IsNull(testPost.Title);
             }
             catch(ArgumentNullException)
@@ -67,7 +45,6 @@ namespace CodeSchoolBlog.Tests
         [TestMethod()]
         public void PostTestNullBodyConstructor()
         {
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
             string testTitle = "my test title";
             string testBody = null;
 
@@ -75,7 +52,7 @@ namespace CodeSchoolBlog.Tests
             
             try
             {
-               testPost = new Post(testAuthor, testTitle, testBody);
+               testPost = new Post(testTitle, testBody);
                Assert.IsNull(testPost.Body);
             }
             catch(ArgumentNullException)
