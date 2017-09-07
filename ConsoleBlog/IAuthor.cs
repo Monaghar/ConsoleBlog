@@ -14,10 +14,10 @@ namespace CodeSchoolBlog
         List<Comment> MyComments { get; set; }
         List<Post> MyPosts { get; set; }
         
-        void CreatePost(Author owner, string title, string body);
-        void CreateComment(Author owner, Post post, string body);
-        void CreateComment(Author owner, Comment comment, string body);
-        bool LogIn(Author owner, string password);
-        bool LogOut(Authoer owner);
+        void CreatePost(string title, string body);
+        void CreateComment(Post post, string body);
+        void CreateComment(Comment comment, string body);
+        bool LogIn(string password);
+        bool LogOut();
     }
 }
