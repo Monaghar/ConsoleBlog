@@ -59,6 +59,7 @@ namespace CodeSchoolBlog
             {
                 Post myPost = new Post(title, body);
                 this.PostHistory.Add(myPost);
+                Blog.Posts.Add(myPost);
             }
         }
         
