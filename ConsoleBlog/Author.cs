@@ -14,7 +14,7 @@ namespace CodeSchoolBlog
         public string Bio { get; set; }
         public List<Post> PostHistory { get; set; }
         public List<Comment> CommentHistory { get; set; }
-        public String Password { get; private set; }
+        public string Password { get; private set; }
         public bool IsLoggedIn { get; set; }
 
         public Author(string name, string eMail, string bio, string password)
