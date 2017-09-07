@@ -11,8 +11,8 @@ namespace CodeSchoolBlog
         public string Name { get; set; }
         public string EMail { get; set; }
         public string Bio { get; set; }
-        public List<Post> MyPosts { get; set; }
-        public List<Comment> MyComments { get; set; }
+        public List<Post> PostHistory { get; set; }
+        public List<Comment> CommentHistory { get; set; }
         public String Password { get; private set; }
         public bool IsLoggedIn { get; set; }
 
@@ -24,8 +24,8 @@ namespace CodeSchoolBlog
                 EMail = eMail;
                 Bio = bio;
                 Password = password;
-                MyComments = new List<Comment>();
-                MyPosts = new List<Post>();
+                CommentHistory = new List<Comment>();
+                PostHistory = new List<Post>();
             }
             else{throw new ArgumentNullException("Yo your Author params are null fix em");} 
         }
@@ -39,6 +39,34 @@ namespace CodeSchoolBlog
             }
             Console.WriteLine("Wrong password or username");
             return IsLoggedIn = false;
+        }
+        
+        public void CreatePost(Author owner, string title, string body)
+        {
+            if(owner.IsLoggedIn)
+            {
+                Post myPost = new Post(title, body);
+                owner.PostHistory.Add(myPost);
+            }
+        }
+        
+        public void CreateComment(Author owner, Post post, string body)
+        {
+            if(owner.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                owner.CommentHistory.Add(myComment);
+            }
+        }
+        
+        public void CreateComment(Author owner, Comment comment, string body)
+        {
+            if(owner.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                owner.CommentHistory.Add(myComment);
+                comment.CommentChain.Add(myComment);
+            }
         }
     }
 }
