@@ -6,5 +6,6 @@ namespace CodeSchoolBlog
     {
         string Body { get; set; }
         DateTime dateTime { get; set; }
+        List<Comment> {get: set:}
     }
 }
