@@ -16,7 +16,7 @@ namespace CodeSchoolBlog
 
         public Blog(Author owner, string title, string description)
         {
-            if (owner != null && title != null && description != null)
+            if (owner != null && !string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(description))
             {
                 Owner = owner;
                 Title = title;
