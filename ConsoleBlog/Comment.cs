@@ -17,7 +17,7 @@ namespace CodeSchoolBlog
 
         public Comment(string body)
         {
-            if(body != null)
+            if(!string.IsNullOrEmpty(body))
             {
                 Body = body;
                 this.dateTime = DateTime.Now;
