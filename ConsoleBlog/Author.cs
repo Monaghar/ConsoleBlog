@@ -46,7 +46,11 @@ namespace CodeSchoolBlog
         
         public bool LogOut(Author owner)
         {
-            if(owner.IsLoggedIn){return owner.IsLoggedIn = false;}
+            if(owner.IsLoggedIn)
+            {   
+                Console.WriteLine("Logging out " + owner.Name);
+                return owner.IsLoggedIn = false;
+            }
         }
         
         public void CreatePost(Author owner, string title, string body)
