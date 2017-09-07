@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CodeSchoolBlog
 {
-    interface IPost : IComment
+    interface IPost
     {
         List<Comment> Comments { get; set; }
         string Title { get; set; }
