@@ -33,20 +33,20 @@ namespace CodeSchoolBlog
             else{throw new ArgumentNullException("Yo your Author params are null fix em");} 
         }
 
-        public bool LogIn(string password)
+        public bool LogIn(Author owner, string password)
         {
-            if (Password == password)
+            if (owner.Password == password)
             {
                 Console.WriteLine("You Logged in!");
-                return IsLoggedIn = true;
+                return owner.IsLoggedIn = true;
             }
             Console.WriteLine("Wrong password or username");
-            return IsLoggedIn = false;
+            return owner.IsLoggedIn = false;
         }
         
-        public bool LogOut()
+        public bool LogOut(Author owner)
         {
-            if(IsLoggedIn){return IsLoggedIn = false;}
+            if(owner.IsLoggedIn){return owner.IsLoggedIn = false;}
         }
         
         public void CreatePost(Author owner, string title, string body)
