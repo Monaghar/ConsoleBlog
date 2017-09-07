@@ -9,6 +9,7 @@ namespace CodeSchoolBlog
     public class Author : IAuthor
     {
         public string Name { get; set; }
+        public int ID {get; set;}
         public string EMail { get; set; }
         public string Bio { get; set; }
         public List<Post> PostHistory { get; set; }
