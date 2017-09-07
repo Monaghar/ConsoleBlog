@@ -37,18 +37,8 @@ namespace CodeSchool.Tests
             string eMail = "HOR@DOR";
             string bio = "I got turned simple by my time traveling master";
             string password = "432221";
-
-            var author;
-
-            try
-            {
-                author  = new Author(name, eMail, bio, password);
-                Assert.IsNull(author.Name);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Author Constructor Name nulll test passed");
-            }
+           
+            Assert.Throws<ArgumentNullException>(() => new Author(name, eMail, bio, password));
         }
 
         [TestMethod()]
@@ -59,17 +49,7 @@ namespace CodeSchool.Tests
             string bio = "I got turned simple by my time traveling master";
             string password = "432221";
 
-            var author;
-
-            try
-            {
-                author  = new Author(name, eMail, bio, password);
-                Assert.IsNull(author.EMail);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Author Constructor EMail nulll test passed");
-            }
+            Assert.Throws<ArgumentNullException>(() => new Author(name, eMail, bio, password));
         }
         
         [TestMethod()]
@@ -80,17 +60,7 @@ namespace CodeSchool.Tests
             string bio = null;
             string password = "432221";
 
-            var author;
-
-            try
-            {
-                author  = new Author(name, eMail, bio, password);
-                Assert.IsNull(author.Bio);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Author Constructor Bio nulll test passed");
-            }
+            Assert.Throws<ArgumentNullException>(() => new Author(name, eMail, bio, password));
         }
         
         [TestMethod()]
@@ -101,17 +71,7 @@ namespace CodeSchool.Tests
             string bio = "I got turned simple by my time traveling master";
             string password = null;
 
-            var author;
-
-            try
-            {
-                author  = new Author(name, eMail, bio, password);
-                Assert.IsNull(author.Password);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Author Constructor Password nulll test passed");
-            }
+            Assert.Throws<ArgumentNullException>(() => new Author(name, eMail, bio, password));
         }
         
         [TestMethod()]
@@ -127,6 +87,22 @@ namespace CodeSchool.Tests
             author.LogIn("432221");
 
             Assert.AreEqual(true, author.IsLoggedIn);
+        }
+        
+        [TestMethod()]
+        public void AuthorLogOutTest()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+
+            author.LogIn("432221");
+            Assert.AreEqual(true, author.IsLoggedIn);
+            author.LogOut();
+            Assert.AreEqual(false, author.IsLoggedIn);
         }
     }
 }
