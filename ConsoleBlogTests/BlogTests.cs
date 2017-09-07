@@ -30,18 +30,9 @@ namespace CodeSchoolBlog.Tests
             Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
             string testDescription = "This is for code school.";
             string testTitle = null;
-
-            Blog testBlog;
-
-            try
-            {
-                testBlog = new Blog(testAuthor, testTitle, testDescription);
-                Assert.IsNull(testBlog.Title);
-            }
-            catch(ArgumentNullException)
-            {
-                Assert.Pass("Blog Constructor Title null test passed");
-            }
+    
+            //how do i know which item throws the exception?
+            Assert.Throws<ArgumentNullException>(() => new Blog(testAuthor, testTitle, testDescription));
         }
 
         [TestMethod()]
@@ -51,17 +42,7 @@ namespace CodeSchoolBlog.Tests
             string testDescription = null;
             string testTitle = "My Blog";
 
-            Blog testBlog;
-
-            try
-            {
-                testBlog = new Blog(testAuthor, testTitle, testDescription);
-                Assert.IsNull(testBlog.Description);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.Pass("Blog Constructor Description null test passed");
-            }
+            Assert.Throws<ArgumentNullException>(() => new Blog(testAuthor, testTitle, testDescription));
         }
 
         [TestMethod()]
@@ -71,17 +52,7 @@ namespace CodeSchoolBlog.Tests
             string testDescription = "This is for code school.";
             string testTitle = "My Blog";
 
-            Blog testBlog;
-
-            try
-            {
-                testBlog = new Blog(testAuthor, testTitle, testDescription);
-                Assert.IsNull(testBlog.Owner);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.Pass("Blog Constructor Author null test passed");
-            }
+            Assert.Throws<ArgumentNullException>(() => new Blog(testAuthor, testTitle, testDescription));
         }
     }
 }
