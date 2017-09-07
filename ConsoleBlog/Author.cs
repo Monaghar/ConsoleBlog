@@ -33,51 +33,51 @@ namespace CodeSchoolBlog
             else{throw new ArgumentNullException("Yo your Author params are null fix em");} 
         }
 
-        public bool LogIn(Author owner, string password)
+        public bool LogIn(string password)
         {
-            if (owner.Password == password)
+            if (this.Password == password)
             {
                 Console.WriteLine("You Logged in!");
-                return owner.IsLoggedIn = true;
+                return this.IsLoggedIn = true;
             }
             Console.WriteLine("Wrong password or username");
-            return owner.IsLoggedIn = false;
+            return this.IsLoggedIn = false;
         }
         
-        public bool LogOut(Author owner)
+        public bool LogOut()
         {
-            if(owner.IsLoggedIn)
+            if(this.IsLoggedIn)
             {   
                 Console.WriteLine("Logging out " + owner.Name);
-                return owner.IsLoggedIn = false;
+                return this.IsLoggedIn = false;
             }
         }
         
-        public void CreatePost(Author owner, string title, string body)
+        public void CreatePost(string title, string body)
         {
-            if(owner.IsLoggedIn)
+            if(this.IsLoggedIn)
             {
                 Post myPost = new Post(title, body);
-                owner.PostHistory.Add(myPost);
+                this.PostHistory.Add(myPost);
             }
         }
         
-        public void CreateComment(Author owner, Post post, string body)
+        public void CreateComment(Post post, string body)
         {
-            if(owner.IsLoggedIn)
+            if(this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
-                owner.CommentHistory.Add(myComment);
+                this.CommentHistory.Add(myComment);
                 post.Comments.Add(myComment);
             }
         }
         
-        public void CreateComment(Author owner, Comment comment, string body)
+        public void CreateComment(Comment comment, string body)
         {
-            if(owner.IsLoggedIn)
+            if(this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
-                owner.CommentHistory.Add(myComment);
+                this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
             }
         }
