@@ -15,7 +15,7 @@ namespace CodeSchoolBlog
 
         public Post(string title, string body)
         {
-             if(owner != null && title != null && body != null)
+             if(!string.IsNullOrEmpty(owner) && !string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
             {
                 Title = title;
                 Body = body;
