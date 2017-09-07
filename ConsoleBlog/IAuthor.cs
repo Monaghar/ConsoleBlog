@@ -11,8 +11,8 @@ namespace CodeSchoolBlog
         string ID { get; set; }
         string Password { get; }
         bool IsLoggedIn { get; set; }
-        List<Comment> MyComments { get; set; }
-        List<Post> MyPosts { get; set; }
+        List<Comment> CommentHistory { get; set; }
+        List<Post> PostHistory { get; set; }
         
         void CreatePost(string title, string body);
         void CreateComment(Post post, string body);
