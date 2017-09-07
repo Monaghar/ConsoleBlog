@@ -19,7 +19,9 @@ namespace CodeSchoolBlog
 
         public Author(string name, string eMail, string bio, string password)
         {
-            if(string.IsNullOrEmpty(name) && string.IsNullOrEmpty(eMail) && string.IsNullOrEmpty(bio) && string.IsNullOrEmpty(password))
+            if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail) 
+                                           && !string.IsNullOrEmpty(bio) 
+                                           && !string.IsNullOrEmpty(password))
             {
                 Name = name;
                 EMail = eMail;
