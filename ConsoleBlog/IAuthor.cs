@@ -17,6 +17,7 @@ namespace CodeSchoolBlog
         void CreatePost(Author owner, string title, string body);
         void CreateComment(Author owner, Post post, string body);
         void CreateComment(Author owner, Comment comment, string body);
-        bool LogIn(string password);
+        bool LogIn(Author owner, string password);
+        bool LogOut(Authoer owner);
     }
 }
