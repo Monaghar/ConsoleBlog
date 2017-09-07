@@ -13,7 +13,7 @@ namespace CodeSchoolBlog
         public string Bio { get; set; }
         public string Password { get; private set; }
         public int ID {get; set;}
-        public bool IsLoggedIn { get; set; }
+        public bool IsLoggedIn { get; set; } = false;
         public List<Post> PostHistory { get; set; }
         public List<Comment> CommentHistory { get; set; }
 
