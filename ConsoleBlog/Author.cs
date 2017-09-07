@@ -9,13 +9,13 @@ namespace CodeSchoolBlog
     public class Author : IAuthor
     {
         public string Name { get; set; }
-        public int ID {get; set;}
         public string EMail { get; set; }
         public string Bio { get; set; }
+        public string Password { get; private set; }
+        public int ID {get; set;}
+        public bool IsLoggedIn { get; set; }
         public List<Post> PostHistory { get; set; }
         public List<Comment> CommentHistory { get; set; }
-        public string Password { get; private set; }
-        public bool IsLoggedIn { get; set; }
 
         public Author(string name, string eMail, string bio, string password)
         {
@@ -57,6 +57,7 @@ namespace CodeSchoolBlog
             {
                 Comment myComment = new Comment(body);
                 owner.CommentHistory.Add(myComment);
+                post.Comments.Add(myComment);
             }
         }
         
