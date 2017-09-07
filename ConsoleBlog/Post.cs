@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeSchoolBlog
 {
-    public class Post : IPost
+    public class Post : IPost, IComment
     {
         public Author Owner { get; set; }
         public string Body { get; set; }
