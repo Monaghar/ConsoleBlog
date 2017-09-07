@@ -11,7 +11,7 @@ namespace CodeSchoolBlog
         public string Body { get; set; }
         public DateTime dateTime { get; set; }
         //public Author Owner { get; set; }
-        public List<Comment> {get; set;}
+        public List<Comment> CommentChain {get; set;}
 
         public Comment() { }
 
@@ -21,9 +21,7 @@ namespace CodeSchoolBlog
             {
                 Body = body;
                 this.dateTime = DateTime.Now;
-                //Owner = owner;
-                //owner.MyComments.Add(this);
-                //post.Comments.Add(this);
+                CommentChain = new List<Comment>();
             }
             else{throw new ArgumentNullException("Yo your Comment params are null fix em");}
         }
