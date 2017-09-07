@@ -4,14 +4,19 @@ namespace CodeSchoolBlog
 {
     interface IAuthor
     {
-        string Bio { get; set; }
+        string Name { get; set; }
         string EMail { get; set; }
+        string Bio { get; set; }
+        string Password { get; }
+        string ID { get; set; }
+        string Password { get; }
         bool IsLoggedIn { get; set; }
         List<Comment> MyComments { get; set; }
         List<Post> MyPosts { get; set; }
-        string Name { get; set; }
-        string Password { get; }
-
+        
+        void CreatePost(Author owner, string title, string body);
+        void CreateComment(Author owner, Post post, string body);
+        void CreateComment(Author owner, Comment comment, string body);
         bool LogIn(string password);
     }
 }
