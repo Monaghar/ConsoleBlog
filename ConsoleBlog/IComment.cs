@@ -2,7 +2,7 @@
 
 namespace CodeSchoolBlog
 {
-    interface IComment : IOwner
+    interface IComment
     {
         string Body { get; set; }
         string SignatureBlock {get; set;}
