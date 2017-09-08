@@ -11,6 +11,7 @@ namespace CodeSchoolBlog
         public string Name { get; set; }
         public string EMail { get; set; }
         public string Bio { get; set; }
+        public string Signature {get; set;}
         public string Password { get; private set; }
         public int ID {get; set;}
         public bool IsLoggedIn { get; set; } = false;
