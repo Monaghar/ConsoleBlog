@@ -14,12 +14,13 @@ namespace CodeSchoolBlog
         public List<Comment> Comments { get; set; }
         public string Title { get; set; }
 
-        public Post(string title, string body)
+        public Post(string title, string body, string signature)
         {
              if(!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
             {
                 Title = title;
                 Body = body;
+                SignatureBlock = signature;
                 this.dateTime = DateTime.Now;
                 Comments = new List<Comment>();
             }
