@@ -8,6 +8,7 @@ namespace CodeSchoolBlog
 {
     public class Comment : IComment
     {
+        public int ID {get; set;}
         public string Body { get; set; }
         public string SignatureBlock {get; set;}
         public DateTime dateTime { get; set; }
