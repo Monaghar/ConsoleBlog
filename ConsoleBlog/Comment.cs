@@ -15,11 +15,12 @@ namespace CodeSchoolBlog
 
         public Comment() { }
 
-        public Comment(string body)
+        public Comment(string body, string signature)
         {
             if(!string.IsNullOrEmpty(body))
             {
                 Body = body;
+                SignatureBlock = signature;
                 this.dateTime = DateTime.Now;
                 CommentChain = new List<Comment>();
             }
