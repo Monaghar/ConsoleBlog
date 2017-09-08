@@ -76,6 +76,12 @@ namespace CodeSchoolBlog
             }
         }
         
+        public void EditPost(Post post, string newBody)
+        {
+            post.Body = newBody;
+            post.EditTime = DateTime.Now;
+        }
+        
         public void CreateComment(Post post, string body)
         {
             if(this.IsLoggedIn)
@@ -114,6 +120,12 @@ namespace CodeSchoolBlog
                 this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
             }
+        }
+        
+        public void EditComment(Comment comment, string newBody)
+        {
+            comment.Body = newBody;
+            comment.EditTime = DateTime.Now;
         }
     }
 }
