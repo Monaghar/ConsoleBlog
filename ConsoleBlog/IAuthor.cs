@@ -9,6 +9,7 @@ namespace CodeSchoolBlog
         string Bio { get; set; }
         string Password { get; }
         string ID { get; set; }
+        string Signature {get; set;}
         string Password { get; }
         bool IsLoggedIn { get; set; }
         List<Comment> CommentHistory { get; set; }
