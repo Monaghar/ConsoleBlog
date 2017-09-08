@@ -48,7 +48,7 @@ namespace CodeSchoolBlog
         {
             if(this.IsLoggedIn)
             {   
-                Console.WriteLine("Logging out " + owner.Name);
+                Console.WriteLine("Logging out " + this.Name);
                 return this.IsLoggedIn = false;
             }
         }
