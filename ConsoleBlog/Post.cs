@@ -9,6 +9,7 @@ namespace CodeSchoolBlog
     public class Post : IPost, IComment
     {
         public string Body { get; set; }
+        public string SingatureBlock {get; set;}
         public DateTime dateTime { get; set; }
         public List<Comment> Comments { get; set; }
         public string Title { get; set; }
