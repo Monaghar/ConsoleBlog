@@ -10,6 +10,7 @@ namespace CodeSchoolBlog
     {
         public string Body { get; set; }
         public string SingatureBlock {get; set;}
+        public int ID {get; set;}
         public DateTime dateTime { get; set; }
         public DateTime EditTime {get; set;}
         public List<Comment> Comments { get; set; }
