@@ -18,16 +18,18 @@ namespace CodeSchoolBlog
         public List<Post> PostHistory { get; set; }
         public List<Comment> CommentHistory { get; set; }
 
-        public Author(string name, string eMail, string bio, string password)
+        public Author(string name, string eMail, string bio, string password, string signature)
         {
             if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail) 
                                            && !string.IsNullOrEmpty(bio) 
-                                           && !string.IsNullOrEmpty(password))
+                                           && !string.IsNullOrEmpty(password)
+                                           && !string.IsNullOrEmpty(signature))
             {
                 Name = name;
                 EMail = eMail;
                 Bio = bio;
                 Password = password;
+                Signature = signature;
                 CommentHistory = new List<Comment>();
                 PostHistory = new List<Post>();
             }
@@ -54,6 +56,16 @@ namespace CodeSchoolBlog
             }
         }
         
+        public void CreatePost(string title, string body, string signature)
+        {
+            if(this.IsLoggedIn)
+            {
+                Post myPost = new Post(title, body, signature);
+                this.PostHistory.Add(myPost);
+                Blog.Posts.Add(myPost);
+            }
+        }
+        
         public void CreatePost(string title, string body)
         {
             if(this.IsLoggedIn)
@@ -74,11 +86,31 @@ namespace CodeSchoolBlog
             }
         }
         
+        public void CreateComment(Post post, string body, signature)
+        {
+            if(this.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body, signature);
+                this.CommentHistory.Add(myComment);
+                post.Comments.Add(myComment);
+            }
+        }
+        
         public void CreateComment(Comment comment, string body)
         {
             if(this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
+                this.CommentHistory.Add(myComment);
+                comment.CommentChain.Add(myComment);
+            }
+        }
+        
+        public void CreateComment(Comment comment, string body, signature)
+        {
+            if(this.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body, signature);
                 this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
             }
