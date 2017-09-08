@@ -16,11 +16,23 @@ namespace CodeSchoolBlog
 
         public Post(string title, string body, string signature)
         {
-             if(!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
+             if(!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body) && !string.IsNullOrEmpty(signature))
             {
                 Title = title;
                 Body = body;
                 SignatureBlock = signature;
+                this.dateTime = DateTime.Now;
+                Comments = new List<Comment>();
+            }
+            else {throw new ArgumentNullException("Yo your Post params are null fix em");} 
+        }
+        
+        public Post(string title, string body)
+        {
+             if(!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
+            {
+                Title = title;
+                Body = body;
                 this.dateTime = DateTime.Now;
                 Comments = new List<Comment>();
             }
