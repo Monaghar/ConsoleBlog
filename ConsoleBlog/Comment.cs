@@ -9,6 +9,7 @@ namespace CodeSchoolBlog
     public class Comment : IComment
     {
         public int ID { get; set; }
+        public int Rating {get; set; }
         public string Body { get; set; }
         public string SignatureBlock { get; set; }
         public DateTime dateTime { get; set; }
@@ -22,6 +23,7 @@ namespace CodeSchoolBlog
             if (!string.IsNullOrEmpty(body))
             {
                 Body = body;
+                Rating = 0;
                 this.dateTime = DateTime.Now;
                 CommentChain = new List<Comment>();
             }
