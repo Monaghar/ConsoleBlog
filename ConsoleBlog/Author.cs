@@ -160,7 +160,11 @@ namespace CodeSchoolBlog
         public void ReportComment(Comment comment, Bool reported)
         {
             if (reported) {comment.IsReported = true;}
-            if (!reported) {comment.IsReported = false;}
+            if (this == typeof(Admin)
+            {
+                if (!reported) {comment.IsReported = false;}
+            }
+            
         }
     }
 }
