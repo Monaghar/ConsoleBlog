@@ -149,5 +149,11 @@ namespace CodeSchoolBlog
                 comment.EditTime = DateTime.Now;
             }
         }
+        //true is upvote, false is downvote. not sure how else to do that?
+        public void RateComment(Comment comment, Bool rate)
+        {
+            if (rate) {comment.Rating += 1;}
+            if (!rate) {comment.Rating -= 1;}
+        }
     }
 }
