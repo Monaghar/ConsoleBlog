@@ -131,6 +131,7 @@ namespace CodeSchoolBlog
             if (this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
+                myComment.Body = Author.Quotes(quote) + myComment.Body;
                 this.CommentHistory.Add(myComment);
                 post.CommentChain.Add(myComment);
                 if (!string.IsNullOrEmpty(this.Signature))
