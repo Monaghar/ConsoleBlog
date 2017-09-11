@@ -49,6 +49,19 @@ namespace CodeSchoolBlog
             }
             else { throw new ArgumentNullException("Yo your Author params are null fix em"); }
         }
+        
+         public Author(string name, string eMail, string password)
+        {
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
+                                           && !string.IsNullOrEmpty(password))
+            {
+                Name = name;
+                EMail = eMail;
+                Password = password;
+                CommentHistory = new List<Comment>();
+            }
+            else { throw new ArgumentNullException("Yo your Author params are null fix em"); }
+        }
 
         public bool LogIn(string password)
         {
@@ -77,16 +90,10 @@ namespace CodeSchoolBlog
                 Comment myComment = new Comment(body);
                 this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
-            }
-        }
-
-        public void CreateComment(Comment comment, string body, string signature)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body, signature);
-                this.CommentHistory.Add(myComment);
-                comment.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
             }
         }
 
@@ -97,16 +104,10 @@ namespace CodeSchoolBlog
                 Comment myComment = new Comment(body);
                 this.CommentHistory.Add(myComment);
                 post.CommentChain.Add(myComment);
-            }
-        }
-
-        public void CreateComment(Post post, string body, string signature)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body, signature);
-                this.CommentHistory.Add(myComment);
-                post.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
             }
         }
 
@@ -117,6 +118,13 @@ namespace CodeSchoolBlog
                 comment.Body = newBody;
                 comment.EditTime = DateTime.Now;
             }
+        }
+        
+        public string QuoteComment(string quote, string comment)
+        {
+            string quotedcomment = "\"" + quote + "\" " + comment;
+            
+            return 
         }
     }
 }
