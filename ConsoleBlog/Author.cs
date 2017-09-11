@@ -102,7 +102,7 @@ namespace CodeSchoolBlog
             if (this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
-                myComment.Body = Author.Quotes(quote) + myComment.Body;
+                myComment.Body = string.Quotes(quote) + myComment.Body;
                 this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
                 if (!string.IsNullOrEmpty(this.Signature))
@@ -131,7 +131,7 @@ namespace CodeSchoolBlog
             if (this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
-                myComment.Body = Author.Quotes(quote) + myComment.Body;
+                myComment.Body = string.Quotes(quote) + myComment.Body;
                 this.CommentHistory.Add(myComment);
                 post.CommentChain.Add(myComment);
                 if (!string.IsNullOrEmpty(this.Signature))
@@ -150,7 +150,7 @@ namespace CodeSchoolBlog
             }
         }
         
-        public static string Quotes(string quote)
+        public static string Quotes(this string quote)
         {
             return quote = "\"" + quote + "\" ";
         }
