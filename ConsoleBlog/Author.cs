@@ -149,10 +149,5 @@ namespace CodeSchoolBlog
                 comment.EditTime = DateTime.Now;
             }
         }
-        
-        public static string Quotes(this string quote)
-        {
-            return quote = "\"" + quote + "\" ";
-        }
     }
 }
