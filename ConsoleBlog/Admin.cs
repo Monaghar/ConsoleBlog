@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeSchoolBlog
 {
-    public class Admin : Author
+    public class Admin : Author, IAdmin
     {
         public List<Post> PostHistory { get; set; }
 
