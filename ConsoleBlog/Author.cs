@@ -102,7 +102,7 @@ namespace CodeSchoolBlog
             if (this.IsLoggedIn)
             {
                 Comment myComment = new Comment(body);
-                myComment.Body = this.Quotes(quote) + myComment.Body;
+                myComment.Body = Author.Quotes(quote) + myComment.Body;
                 this.CommentHistory.Add(myComment);
                 comment.CommentChain.Add(myComment);
                 if (!string.IsNullOrEmpty(this.Signature))
@@ -149,7 +149,7 @@ namespace CodeSchoolBlog
             }
         }
         
-        public string Quotes(string quote)
+        public static string Quotes(string quote)
         {
             return quote = "\"" + quote + "\" ";
         }
