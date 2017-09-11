@@ -16,15 +16,15 @@ namespace CodeSchoolBlog
         public static void Main(string[] args)
         {
 
-            Author Jeff = new Author("Jeff", "test.com", "pro blogger", "12345");
-            Blog myBlog = new Blog(Jeff, "Code School Blog", "Blogging Code School");
-            Post helloWorld = new Post(Jeff, "Hello World!", "Sup Nerds?!");
-            Comment firstComment = new Comment("Code School Rocks!", Jeff, helloWorld);
-            Console.WriteLine("Hello, " + Jeff.Name);
-            Console.WriteLine(Jeff.MyComments[0].Body);
-            Console.WriteLine(firstComment.Body);
-            Console.WriteLine(myBlog.Title);
-            Console.ReadLine();
+            //Author Jeff = new Author("Jeff", "test.com", "pro blogger", "12345");
+            //Blog myBlog = new Blog(Jeff, "Code School Blog", "Blogging Code School");
+            //Post helloWorld = new Post(Jeff, "Hello World!", "Sup Nerds?!");
+            //Comment firstComment = new Comment("Code School Rocks!", Jeff, helloWorld);
+            //Console.WriteLine("Hello, " + Jeff.Name);
+            //Console.WriteLine(Jeff.MyComments[0].Body);
+            //Console.WriteLine(firstComment.Body);
+            //Console.WriteLine(myBlog.Title);
+            //Console.ReadLine();
 
 
         }

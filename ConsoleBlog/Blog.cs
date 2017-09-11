@@ -6,23 +6,11 @@ using System.Threading.Tasks;
 
 namespace CodeSchoolBlog
 {
-    public class Blog : IBlog
+    public static class Blog
     {
-        public Author Owner { get; set; }
-        public List<Post> Posts { get; set; }
-
-        public string Description { get; set; }
-        public string Title { get; set; }
-
-        public Blog(Author owner, string title, string description)
-        {
-            if (owner != null && title != null && description != null)
-            {
-                Owner = owner;
-                Title = title;
-                Description = description;
-            }
-            else { throw new ArgumentNullException("Yo your stuff is null fix it"); }
-        }
+        public static Admin Owner = new Admin("Ryan", "Ryan.Monaghan@shiftwise.com", "total coding noob", "1234", "Hello World!");
+        public static List<Post> Posts = new List<Post>();
+        public static string Description = "Ryans first attempt at a blog";
+        public static string Title = "Code School Blog"; 
     }
 }

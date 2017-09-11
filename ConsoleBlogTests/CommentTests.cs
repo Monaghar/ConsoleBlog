@@ -18,22 +18,20 @@ namespace CodeSchool.Tests
         public void CommentTest()
         {
             string testBody = "you make good posts";
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
-            Post testPost = new Post(testAuthor, "How to write posts", "just do it");
             DateTime testDateTime = DateTime.Now;
 
-            var testComment = new Comment(testBody, testAuthor, testPost);
+            var testComment = new Comment(testBody);
 
             Assert.AreEqual(testBody, testComment.Body);
-            Assert.AreEqual(testAuthor, testComment.Owner);
-            // Assert.AreEqual(testPost, testComment.Post);
+        }
 
+        [TestMethod()]
+        public void CommentNullBodyTest()
+        {
+            string testBody = null;
+            DateTime testDateTime = DateTime.Now;
+
+            Assert.ThrowsException<ArgumentNullException>(() => new Comment(testBody));
         }
     }
 }
-    //[TestMethod()]
-    //public void CommentTest1()
-    //{
-    //    Assert.Fail();
-    //}
-

@@ -14,28 +14,51 @@ namespace CodeSchoolBlog.Tests
         [TestMethod()]
         public void PostTest()
         {
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
             string testTitle = "my test title";
             string testBody = "alot of great info";
 
-            var testPost = new Post(testAuthor, testTitle, testBody);
+            var testPost = new Post(testTitle, testBody);
 
             Assert.AreEqual(testTitle, testPost.Title);
             Assert.AreEqual(testBody, testPost.Body);
         }
 
         [TestMethod()]
-        public void PostTestNullAuthorConstructor()
+        public void PostTestNullTitleConstructor()
         {
-            Author testAuthor = new Author("Geoff", "Geoff@.Com", "total noob", "12334");
-            string testTitle = "my test title";
+            string testTitle = null;
             string testBody = "alot of great info";
 
-            var testPost = new Post(testAuthor, testTitle, testBody);
+            Post testPost;
 
-            Assert.AreEqual(testTitle, testPost.Title);
-            Assert.AreEqual(testBody, testPost.Body);
+            try
+            {
+                testPost = new Post(testTitle, testBody);
+                Assert.IsNull(testPost.Title);
+            }
+            catch (ArgumentNullException)
+            {
+                Assert.ThrowsException<ArgumentNullException>(() => new Post(testTitle, testBody));
+            }
         }
 
+        [TestMethod()]
+        public void PostTestNullBodyConstructor()
+        {
+            string testTitle = "my test title";
+            string testBody = null;
+
+            Post testPost;
+
+            try
+            {
+                testPost = new Post(testTitle, testBody);
+                Assert.IsNull(testPost.Body);
+            }
+            catch (ArgumentNullException)
+            {
+                Assert.ThrowsException<ArgumentNullException>(() => new Post(testTitle, testBody));
+            }
+        }
     }
 }

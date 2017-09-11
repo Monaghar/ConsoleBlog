@@ -42,13 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Blog.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="IAdmin.cs" />
     <Compile Include="IAuthor.cs" />
     <Compile Include="IBlog.cs" />
     <Compile Include="IComment.cs" />
-    <Compile Include="IOwner.cs" />
     <Compile Include="IPost.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />

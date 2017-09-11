@@ -8,19 +8,36 @@ namespace CodeSchoolBlog
 {
     public class Comment : IComment
     {
+        public int ID { get; set; }
         public string Body { get; set; }
+        public string SignatureBlock { get; set; }
         public DateTime dateTime { get; set; }
-        public Author Owner { get; set; }
+        public DateTime EditTime { get; set; }
+        public List<Comment> CommentChain { get; set; }
 
         public Comment() { }
 
-        public Comment(string body, Author owner, Post post)
+        public Comment(string body, string signature)
         {
-            Body = body;
-            Owner = owner;
-            this.dateTime = DateTime.Now;
-            owner.MyComments.Add(this);
-            post.Comments.Add(this);
+            if (!string.IsNullOrEmpty(body) && !string.IsNullOrEmpty(signature))
+            {
+                Body = body;
+                SignatureBlock = signature;
+                this.dateTime = DateTime.Now;
+                CommentChain = new List<Comment>();
+            }
+            else { throw new ArgumentNullException("Yo your Comment params are null fix em"); }
+        }
+
+        public Comment(string body)
+        {
+            if (!string.IsNullOrEmpty(body))
+            {
+                Body = body;
+                this.dateTime = DateTime.Now;
+                CommentChain = new List<Comment>();
+            }
+            else { throw new ArgumentNullException("Yo your Comment params are null fix em"); }
         }
     }
 }

@@ -6,21 +6,39 @@ using System.Threading.Tasks;
 
 namespace CodeSchoolBlog
 {
-    public class Post : IPost
+    public class Post : IPost, IComment
     {
-        public Author Owner { get; set; }
         public string Body { get; set; }
+        public string SignatureBlock { get; set; }
+        public int ID { get; set; }
         public DateTime dateTime { get; set; }
-        public List<Comment> Comments { get; set; }
+        public DateTime EditTime { get; set; }
+        public List<Comment> CommentChain{ get; set; }
         public string Title { get; set; }
 
-        public Post(Author owner, string title, string body)
+        public Post(string title, string body, string signature)
         {
-            Title = title;
-            Body = body;
-            this.dateTime = DateTime.Now;
-            owner.MyPosts.Add(this);
-            Comments = new List<Comment>();
+            if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body) && !string.IsNullOrEmpty(signature))
+            {
+                Title = title;
+                Body = body;
+                SignatureBlock = signature;
+                this.dateTime = DateTime.Now;
+                CommentChain = new List<Comment>();
+            }
+            else { throw new ArgumentNullException("Yo your Post params are null fix em"); }
+        }
+
+        public Post(string title, string body)
+        {
+            if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
+            {
+                Title = title;
+                Body = body;
+                this.dateTime = DateTime.Now;
+                CommentChain = new List<Comment>();
+            }
+            else { throw new ArgumentNullException("Yo your Post params are null fix em"); }
         }
     }
 }
