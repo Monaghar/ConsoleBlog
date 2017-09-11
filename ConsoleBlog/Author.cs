@@ -155,5 +155,12 @@ namespace CodeSchoolBlog
             if (rate) {comment.Rating += 1;}
             if (!rate) {comment.Rating -= 1;}
         }
+        
+         //true is upvote, false is downvote. not sure how else to do that?
+        public void ReportComment(Comment comment, Bool reported)
+        {
+            if (reported) {comment.IsReported = true;}
+            if (!reported) {comment.IsReported = false;}
+        }
     }
 }
