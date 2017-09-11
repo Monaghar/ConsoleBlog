@@ -96,8 +96,37 @@ namespace CodeSchoolBlog
                 }
             }
         }
+        
+        public void CreateComment(Comment comment, string body, string quote)
+        {
+            if (this.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                myComment.Body = this.Quotes(quote) + myComment.Body;
+                this.CommentHistory.Add(myComment);
+                comment.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
+            }
+        }
 
         public void CreateComment(Post post, string body)
+        {
+            if (this.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                this.CommentHistory.Add(myComment);
+                post.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
+            }
+        }
+        
+        public void CreateComment(Post post, string body, string quote)
         {
             if (this.IsLoggedIn)
             {
@@ -120,11 +149,9 @@ namespace CodeSchoolBlog
             }
         }
         
-        public string QuoteComment(string quote, string comment)
+        public string Quotes(string quote)
         {
-            string quotedcomment = "\"" + quote + "\" " + comment;
-            
-            return 
+            return quote = "\"" + quote + "\" ";
         }
     }
 }
