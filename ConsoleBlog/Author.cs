@@ -149,6 +149,7 @@ namespace CodeSchoolBlog
                 comment.EditTime = DateTime.Now;
             }
         }
+        
         //true is upvote, false is downvote. not sure how else to do that?
         public void RateComment(Comment comment, Bool rate)
         {
@@ -159,12 +160,15 @@ namespace CodeSchoolBlog
          //true is upvote, false is downvote. not sure how else to do that?
         public void ReportComment(Comment comment, Bool reported)
         {
-            if (reported) {comment.IsReported = true;}
+            if (reported) 
+            {
+                Console.WriteLine("someone reported a comment, that's messed up!");
+                comment.IsReported = true;
+            }
             if (this == typeof(Admin)
             {
                 if (!reported) {comment.IsReported = false;}
             }
-            
         }
     }
 }
