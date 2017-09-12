@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeSchoolBlog
+{
+    public class Search
+    {
+        public List<Comment> ReportedSearch(Author author)
+        {
+            return reportedComments = a => (a.CommentChain.Comment.IsReported);
+        }
+        
+        public List<Comment> ReportedSearch(Post post)
+        {
+            return reportedComments = p => (p.Comments.Comment.IsReported);
+        }
+        
+        
+    }
+}
