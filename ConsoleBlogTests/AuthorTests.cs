@@ -139,9 +139,7 @@ namespace CodeSchool.Tests
 
             author.LogIn("432221");
             author.CreateComment(comment, body, quote);
-
-            Assert.IsNotNull(author.CommentHistory[0]);
-            Assert.IsNotNull(comment.CommentChain[0]);
+            
             Assert.AreEqual(comment.Body, "\"look at my quote!\" so much testing");
         }
         
@@ -180,10 +178,110 @@ namespace CodeSchool.Tests
 
             author.LogIn("432221");
             author.CreateComment(post, body, quote);
-
-            Assert.IsNotNull(author.CommentHistory[0]);
-            Assert.IsNotNull(comment.CommentChain[0]);
+            
             Assert.AreEqual(comment.Body, "\"look at my quote!\" so much testing");
+        }
+        
+        [TestMethod()]
+        public void EditComment()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string quote = "look at my quote!";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+            var post = new Post("this is a test post", "OOooo lookit dat body");
+            string body = "so much testing";
+            string newBody = "Way so much testing";
+
+            author.LogIn("432221");
+            author.CreateComment(post, body, quote);
+            author.EditComment(author.CommentHistory[0], newBody);
+
+            Assert.AreEqual(comment.Body, newBody);
+        }
+        
+         [TestMethod()]
+        public void GoodRateComment()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string quote = "look at my quote!";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+            var post = new Post("this is a test post", "OOooo lookit dat body");
+            string body = "so much testing";
+            string newBody = "Way so much testing";
+
+            author.LogIn("432221");
+            author.CreateComment(post, body, quote);
+            author.RateComment(author.CommentHistory[0], true);
+
+            Assert.AreEqual(comment.Rating, 1);
+        }
+        
+         [TestMethod()]
+        public void BadRateComment()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string quote = "look at my quote!";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+            var post = new Post("this is a test post", "OOooo lookit dat body");
+            string body = "so much testing";
+            string newBody = "Way so much testing";
+
+            author.LogIn("432221");
+            author.CreateComment(post, body, quote);
+            author.RateComment(author.CommentHistory[0], false);
+
+            Assert.AreEqual(comment.Rating, -0);
+        }
+        
+        [TestMethod()]
+        public void ReportComment()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+            var post = new Post("this is a test post", "OOooo lookit dat body");
+            string body = "so much testing";
+
+            author.LogIn("432221");
+            author.CreateComment(post, body);
+            author.ReportComment(author.CommentHistory[0], true);
+
+            Assert.AreEqual(comment.IsReported, true);
+        }
+        
+         [TestMethod()]
+        public void UnReportComment()
+        {
+            string name = "Hodor";
+            string eMail = "HOR@DOR";
+            string bio = "I got turned simple by my time traveling master";
+            string password = "432221";
+
+            var author = new Author(name, eMail, bio, password);
+            var admin = new Admin(name, eMail, bio, password, "signature");
+            var post = new Post("this is a test post", "OOooo lookit dat body");
+            string body = "so much testing";
+
+            author.LogIn("432221");
+            author.CreateComment(post, body);
+            admin.ReportComment(author.CommentHistory[0], false);
+
+            Assert.AreEqual(comment.IsReported, false);
         }
     }
 }
