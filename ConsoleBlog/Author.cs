@@ -165,7 +165,7 @@ namespace CodeSchoolBlog
                 Console.WriteLine("someone reported a comment, that's messed up!");
                 comment.IsReported = true;
             }
-            if (this == typeof(Admin) && (reported))
+            if (this == typeof(Admin) && (!reported))
             {
                 comment.IsReported = false;
             }
