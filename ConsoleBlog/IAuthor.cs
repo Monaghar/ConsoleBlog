@@ -11,9 +11,15 @@ namespace CodeSchoolBlog
         int ID { get; set; }
         string Signature { get; set; }
         bool IsLoggedIn { get; set; }
-        List<Comment> CommentHistory { get; set; }
-        void CreateComment(Comment comment, string body);
         bool LogIn(string password);
         bool LogOut();
+        List<Comment> CommentHistory { get; set; }
+        void CreateComment(Comment comment, string body);
+        void CreateComment(Comment comment, string body. string quote);
+        void CreateComment(Post post, string body);
+        void CreateComment(Post post, string body, string quote);
+        void RateComment(Comment comment, bool rate);
+        void EditComment(Comment comment, string newBody);
+        void ReportComment(Comment comment, bool reported);
     }
 }
