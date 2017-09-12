@@ -22,5 +22,10 @@ namespace CodeSchoolBlog
         {
             return reportedComments = c => (c.CommentChain.Comment.IsReported);
         }
+        
+        public Post PostSearch(string title)
+        {
+            return post = (() => title = Blog.Posts.Title);
+        }
     }
 }
