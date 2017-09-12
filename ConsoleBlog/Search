@@ -18,6 +18,9 @@ namespace CodeSchoolBlog
             return reportedComments = p => (p.Comments.Comment.IsReported);
         }
         
-        
+        public List<Comment> ReportedSearch(Comment comment)
+        {
+            return reportedComments = c => (c.CommentChain.Comment.IsReported);
+        }
     }
 }
