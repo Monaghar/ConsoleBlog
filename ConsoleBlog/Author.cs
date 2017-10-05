@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExtensionMethods;
 
 namespace CodeSchoolBlog
 {
@@ -63,7 +64,9 @@ namespace CodeSchoolBlog
             else { throw new ArgumentNullException("Yo your Author params are null fix em"); }
         }
 
-        public bool LogIn(string password)
+        public Author() { }
+        
+            public bool LogIn(string password)
         {
             if (this.Password == password)
             {
@@ -96,21 +99,21 @@ namespace CodeSchoolBlog
                 }
             }
         }
-        
-        public void CreateComment(Comment comment, string body, string quote)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body);
-                myComment.Body = string.Quotes(quote) + myComment.Body;
-                this.CommentHistory.Add(myComment);
-                comment.CommentChain.Add(myComment);
-                if (!string.IsNullOrEmpty(this.Signature))
-                {
-                    myComment.SignatureBlock = this.Signature;
-                }
-            }
-        }
+
+        //public void CreateComment(Comment comment, string body, string quote)
+        //{
+        //    if (this.IsLoggedIn)
+        //    {
+        //        Comment myComment = new Comment(body);
+        //        myComment.Body = string.Quotes(quote) + myComment.Body;
+        //        this.CommentHistory.Add(myComment);
+        //        comment.CommentChain.Add(myComment);
+        //        if (!string.IsNullOrEmpty(this.Signature))
+        //        {
+        //            myComment.SignatureBlock = this.Signature;
+        //        }
+        //    }
+        //}
 
         public void CreateComment(Post post, string body)
         {
@@ -126,20 +129,20 @@ namespace CodeSchoolBlog
             }
         }
         
-        public void CreateComment(Post post, string body, string quote)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body);
-                myComment.Body = string.Quotes(quote) + myComment.Body;
-                this.CommentHistory.Add(myComment);
-                post.CommentChain.Add(myComment);
-                if (!string.IsNullOrEmpty(this.Signature))
-                {
-                    myComment.SignatureBlock = this.Signature;
-                }
-            }
-        }
+        //public void CreateComment(Post post, string body, string quote)
+        //{
+        //    if (this.IsLoggedIn)
+        //    {
+        //        Comment myComment = new Comment(body);
+        //        myComment.Body = string.Quotes(quote) + myComment.Body;
+        //        this.CommentHistory.Add(myComment);
+        //        post.CommentChain.Add(myComment);
+        //        if (!string.IsNullOrEmpty(this.Signature))
+        //        {
+        //            myComment.SignatureBlock = this.Signature;
+        //        }
+        //    }
+        //}
 
         public void EditComment(Comment comment, string newBody)
         {
@@ -151,21 +154,21 @@ namespace CodeSchoolBlog
         }
         
         //true is upvote, false is downvote. not sure how else to do that?
-        public void RateComment(Comment comment, Bool rate)
+        public void RateComment(Comment comment, bool rate)
         {
             if (rate) {comment.Rating += 1;}
             if (!rate) {comment.Rating -= 1;}
         }
         
          //true is upvote, false is downvote. not sure how else to do that?
-        public void ReportComment(Comment comment, Bool reported)
+        public void ReportComment(Comment comment, bool reported)
         {
             if (reported) 
             {
                 Console.WriteLine("someone reported a comment, that's messed up!");
                 comment.IsReported = true;
             }
-            if (this == typeof(Admin) && (!reported))
+            if ((this is Admin) && (!reported))
             {
                 comment.IsReported = false;
             }

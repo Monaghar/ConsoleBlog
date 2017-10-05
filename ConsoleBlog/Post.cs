@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlTypes;
 
 namespace CodeSchoolBlog
 {
@@ -15,6 +16,8 @@ namespace CodeSchoolBlog
         public DateTime EditTime { get; set; }
         public List<Comment> CommentChain{ get; set; }
         public string Title { get; set; }
+        public int Rating { get; set; }
+        public bool IsReported { get; set; }
 
         public Post(string title, string body, string signature)
         {

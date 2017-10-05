@@ -14,8 +14,10 @@ namespace CodeSchoolBlog
         {
             PostHistory = new List<Post>();
         }
+        public Admin()
+        { }
 
-        public void CreatePost(string title, string body)
+            public void CreatePost(string title, string body)
         {
             if (this.IsLoggedIn)
             {
