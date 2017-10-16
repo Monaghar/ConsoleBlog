@@ -36,5 +36,20 @@ namespace CodeSchoolBlog
                 }
             }
         }
+        
+         //public void CreateComment(Comment comment, string body, string quote)
+        //{
+        //    if (this.IsLoggedIn)
+        //    {
+        //        Comment myComment = new Comment(body);
+        //        myComment.Body = string.Quotes(quote) + myComment.Body;
+        //        this.CommentHistory.Add(myComment);
+        //        comment.CommentChain.Add(myComment);
+        //        if (!string.IsNullOrEmpty(this.Signature))
+        //        {
+        //            myComment.SignatureBlock = this.Signature;
+        //        }
+        //    }
+        //}
     }
 }
