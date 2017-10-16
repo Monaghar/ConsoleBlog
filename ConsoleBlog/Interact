@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ExtensionMethods;
+
+namespace CodeSchoolBlog
+{
+    public class Interact
+    {
+      public void EditComment(Author author, Comment comment, string newBody)
+        {
+            if (author.CommentHistory.Contains(comment))
+            {
+                comment.Body = newBody;
+                comment.EditTime = DateTime.Now;
+            }
+        }
+        
+        //true is upvote, false is downvote. not sure how else to do that?
+        public void RateComment(Author author, Comment comment, bool rate)
+        {
+            if(!Author.HasRated) 
+            {
+              if (rate) {comment.Rating += 1;}
+              if (!rate) {comment.Rating -= 1;}
+            }
+        }
+        
+         //true is upvote, false is downvote. not sure how else to do that?
+        public void ReportComment(Comment comment, bool reported)
+        {
+            if (reported) 
+            {
+                Console.WriteLine("someone reported a comment, that's messed up!");
+                comment.IsReported = true;
+            }
+            if ((this is Admin) && (!reported))
+            {
+                comment.IsReported = false;
+            }
+        }
+    }
