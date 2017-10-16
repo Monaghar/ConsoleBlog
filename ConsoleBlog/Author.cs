@@ -86,64 +86,6 @@ namespace CodeSchoolBlog
             return this.IsLoggedIn = false;
         }
 
-        public void CreateComment(Comment comment, string body)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body);
-                this.CommentHistory.Add(myComment);
-                comment.CommentChain.Add(myComment);
-                if (!string.IsNullOrEmpty(this.Signature))
-                {
-                    myComment.SignatureBlock = this.Signature;
-                }
-            }
-        }
-
-        //public void CreateComment(Comment comment, string body, string quote)
-        //{
-        //    if (this.IsLoggedIn)
-        //    {
-        //        Comment myComment = new Comment(body);
-        //        myComment.Body = string.Quotes(quote) + myComment.Body;
-        //        this.CommentHistory.Add(myComment);
-        //        comment.CommentChain.Add(myComment);
-        //        if (!string.IsNullOrEmpty(this.Signature))
-        //        {
-        //            myComment.SignatureBlock = this.Signature;
-        //        }
-        //    }
-        //}
-
-        public void CreateComment(Post post, string body)
-        {
-            if (this.IsLoggedIn)
-            {
-                Comment myComment = new Comment(body);
-                this.CommentHistory.Add(myComment);
-                post.CommentChain.Add(myComment);
-                if (!string.IsNullOrEmpty(this.Signature))
-                {
-                    myComment.SignatureBlock = this.Signature;
-                }
-            }
-        }
-        
-        //public void CreateComment(Post post, string body, string quote)
-        //{
-        //    if (this.IsLoggedIn)
-        //    {
-        //        Comment myComment = new Comment(body);
-        //        myComment.Body = string.Quotes(quote) + myComment.Body;
-        //        this.CommentHistory.Add(myComment);
-        //        post.CommentChain.Add(myComment);
-        //        if (!string.IsNullOrEmpty(this.Signature))
-        //        {
-        //            myComment.SignatureBlock = this.Signature;
-        //        }
-        //    }
-        //}
-
         public void EditComment(Comment comment, string newBody)
         {
             if (this.CommentHistory.Contains(comment))
