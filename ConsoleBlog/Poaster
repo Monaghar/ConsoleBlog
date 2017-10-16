@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ExtensionMethods;
+
+namespace CodeSchoolBlog
+{
+    public class Poaster
+    {
+      public void CreateComment(Author author, Comment comment, string body)
+        {
+            if (author.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                author.CommentHistory.Add(myComment);
+                comment.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
+            }
+        }
+        
+        public void CreateComment(Author author, Post post, string body)
+        {
+            if (author.IsLoggedIn)
+            {
+                Comment myComment = new Comment(body);
+                author.CommentHistory.Add(myComment);
+                Post.CommentChain.Add(myComment);
+                if (!string.IsNullOrEmpty(this.Signature))
+                {
+                    myComment.SignatureBlock = this.Signature;
+                }
+            }
+        }
+    }
+}
