@@ -16,11 +16,13 @@ namespace CodeSchoolBlog
         public string Password { get; private set; }
         public int ID { get; set; }
         public bool IsLoggedIn { get; set; } = false;
+        //public bool HasRated {get; set; } = false;
        
         public List<Comment> CommentHistory { get; set; }
 
         public Author(string name, string eMail, string bio, string password, string signature)
         {
+            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(bio)
                                            && !string.IsNullOrEmpty(password)
@@ -38,6 +40,7 @@ namespace CodeSchoolBlog
 
         public Author(string name, string eMail, string bio, string password)
         {
+            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(bio)
                                            && !string.IsNullOrEmpty(password))
@@ -53,6 +56,7 @@ namespace CodeSchoolBlog
         
          public Author(string name, string eMail, string password)
         {
+            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(password))
             {
@@ -84,36 +88,6 @@ namespace CodeSchoolBlog
                 Console.WriteLine("Logging out " + this.Name);
             }
             return this.IsLoggedIn = false;
-        }
-
-        public void EditComment(Comment comment, string newBody)
-        {
-            if (this.CommentHistory.Contains(comment))
-            {
-                comment.Body = newBody;
-                comment.EditTime = DateTime.Now;
-            }
-        }
-        
-        //true is upvote, false is downvote. not sure how else to do that?
-        public void RateComment(Comment comment, bool rate)
-        {
-            if (rate) {comment.Rating += 1;}
-            if (!rate) {comment.Rating -= 1;}
-        }
-        
-         //true is upvote, false is downvote. not sure how else to do that?
-        public void ReportComment(Comment comment, bool reported)
-        {
-            if (reported) 
-            {
-                Console.WriteLine("someone reported a comment, that's messed up!");
-                comment.IsReported = true;
-            }
-            if ((this is Admin) && (!reported))
-            {
-                comment.IsReported = false;
-            }
         }
     }
 }
