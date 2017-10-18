@@ -59,6 +59,8 @@
     <Compile Include="AdminTests.cs" />
     <Compile Include="AuthorTests.cs" />
     <Compile Include="CommentTests.cs" />
+    <Compile Include="InteractTests.cs" />
+    <Compile Include="PoasterTests.cs" />
     <Compile Include="PostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtensionMethods
+namespace CodeSchoolBlog
 {
     public static class Extensions
     {
-        public static string Quotes(this String quote)
+        public static string Quotes(this string quote)
         {
-            return quote = "\"" + quote + "\" ";
+            string qoote ="\"" + quote + "\" ";
+            return qoote;
         }
     }
 }

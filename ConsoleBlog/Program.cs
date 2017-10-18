@@ -44,7 +44,7 @@ namespace CodeSchoolBlog
             //}
             using (var db = new BlogContext())
             {
-                string name = "Hodor";
+                string name = "Haagggaaarrr";
                 string eMail = "HOR@DOR";
                 string bio = "I got turned simple by my time traveling master";
                 string password = "432221";

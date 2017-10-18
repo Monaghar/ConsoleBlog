@@ -74,8 +74,10 @@
     <Compile Include="IAuthor.cs" />
     <Compile Include="IBlog.cs" />
     <Compile Include="IComment.cs" />
+    <Compile Include="Interact.cs" />
     <Compile Include="IPost.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Poaster.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

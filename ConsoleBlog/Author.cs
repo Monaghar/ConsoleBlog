@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExtensionMethods;
 
 namespace CodeSchoolBlog
 {
@@ -16,13 +15,11 @@ namespace CodeSchoolBlog
         public string Password { get; private set; }
         public int ID { get; set; }
         public bool IsLoggedIn { get; set; } = false;
-        //public bool HasRated {get; set; } = false;
-       
+        public Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
         public List<Comment> CommentHistory { get; set; }
 
         public Author(string name, string eMail, string bio, string password, string signature)
         {
-            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(bio)
                                            && !string.IsNullOrEmpty(password)
@@ -40,7 +37,6 @@ namespace CodeSchoolBlog
 
         public Author(string name, string eMail, string bio, string password)
         {
-            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(bio)
                                            && !string.IsNullOrEmpty(password))
@@ -54,9 +50,8 @@ namespace CodeSchoolBlog
             else { throw new ArgumentNullException("Yo your Author params are null fix em"); }
         }
         
-         public Author(string name, string eMail, string password)
+        public Author(string name, string eMail, string password)
         {
-            Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(eMail)
                                            && !string.IsNullOrEmpty(password))
             {
@@ -70,7 +65,7 @@ namespace CodeSchoolBlog
 
         public Author() { }
         
-            public bool LogIn(string password)
+        public bool LogIn(string password)
         {
             if (this.Password == password)
             {
@@ -89,5 +84,6 @@ namespace CodeSchoolBlog
             }
             return this.IsLoggedIn = false;
         }
+
     }
 }
