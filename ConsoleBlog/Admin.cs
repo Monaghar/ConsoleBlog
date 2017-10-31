@@ -17,21 +17,5 @@ namespace CodeSchoolBlog
         public Admin()
         { }
 
-            public void CreatePost(string title, string body)
-        {
-            if (this.IsLoggedIn)
-            {
-                Post myPost = new Post(title, body, this.Signature);
-                this.PostHistory.Add(myPost);
-                Blog.Posts.Add(myPost);
-            }
-        }
-            //admins can edit eachother's posts
-        public void EditPost(Post post, string newBody)
-        {
-            post.Body = newBody;
-            post.EditTime = DateTime.Now;
-        }
-
     }
 }

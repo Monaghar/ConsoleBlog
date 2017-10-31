@@ -9,7 +9,5 @@ namespace CodeSchoolBlog
     interface IAdmin
     {
         List<Post> PostHistory { get; set; }
-        void CreatePost(string title, string body);
-        void EditPost(Post post, string newbody);
     }
 }

@@ -15,6 +15,7 @@ namespace CodeSchoolBlog
         public string Password { get; private set; }
         public int ID { get; set; }
         public bool IsLoggedIn { get; set; } = false;
+        public Dictionary<Comment, bool> HasReported = new Dictionary<Comment, bool>();
         public Dictionary<Comment, bool> HasRated = new Dictionary<Comment, bool>();
         public List<Comment> CommentHistory { get; set; }
 
@@ -67,22 +68,22 @@ namespace CodeSchoolBlog
         
         public bool LogIn(string password)
         {
-            if (this.Password == password)
+            if (Password.GetHashCode() == password.GetHashCode())
             {
                 Console.WriteLine("You Logged in!");
-                return this.IsLoggedIn = true;
+                return IsLoggedIn = true;
             }
             Console.WriteLine("Wrong password or username");
-            return this.IsLoggedIn = false;
+            return IsLoggedIn = false;
         }
 
         public bool LogOut()
         {
-            if (this.IsLoggedIn)
+            if (IsLoggedIn)
             {
-                Console.WriteLine("Logging out " + this.Name);
+                Console.WriteLine("Logging out " + Name);
             }
-            return this.IsLoggedIn = false;
+            return IsLoggedIn = false;
         }
 
     }

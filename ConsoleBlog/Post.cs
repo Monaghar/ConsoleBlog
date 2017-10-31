@@ -19,26 +19,14 @@ namespace CodeSchoolBlog
         public int Rating { get; set; }
         public bool IsReported { get; set; }
 
-        public Post(string title, string body, string signature)
-        {
-            if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body) && !string.IsNullOrEmpty(signature))
-            {
-                Title = title;
-                Body = body;
-                SignatureBlock = signature;
-                this.dateTime = DateTime.Now;
-                CommentChain = new List<Comment>();
-            }
-            else { throw new ArgumentNullException("Yo your Post params are null fix em"); }
-        }
 
         public Post(string title, string body)
         {
-            if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(body))
+            if (Verify.VerifyPost(title, body))
             {
                 Title = title;
                 Body = body;
-                this.dateTime = DateTime.Now;
+                dateTime = DateTime.Now;
                 CommentChain = new List<Comment>();
             }
             else { throw new ArgumentNullException("Yo your Post params are null fix em"); }

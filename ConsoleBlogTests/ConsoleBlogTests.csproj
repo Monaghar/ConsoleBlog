@@ -60,9 +60,9 @@
     <Compile Include="AuthorTests.cs" />
     <Compile Include="CommentTests.cs" />
     <Compile Include="InteractTests.cs" />
-    <Compile Include="PoasterTests.cs" />
     <Compile Include="PostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerifyTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

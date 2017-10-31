@@ -10,7 +10,6 @@ namespace CodeSchoolBlog
     {
         public int ID { get; set; }
         public int Rating { get; set; }
-        public bool IsReported { get; set; }
         public string Body { get; set; }
         public string SignatureBlock { get; set; }
         public DateTime dateTime { get; set; }
@@ -25,10 +24,10 @@ namespace CodeSchoolBlog
             {
                 Body = body;
                 Rating = 0;
-                this.dateTime = DateTime.Now;
+                dateTime = DateTime.Now;
                 CommentChain = new List<Comment>();
             }
-            else { throw new ArgumentNullException("Yo your Comment params are null fix em"); }
+            else { throw new ArgumentNullException("You cannot enter a blank comment"); }
         }
     }
-}
+} 

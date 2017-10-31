@@ -7,7 +7,6 @@ namespace CodeSchoolBlog
     {
         int ID { get; set; }
         int Rating { get; set; }
-        bool IsReported { get; set; }
         string Body { get; set; }
         string SignatureBlock { get; set; }
         DateTime dateTime { get; set; }
